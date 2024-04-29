@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """App views module"""
-import models
+
 from api.v1.views import app_views
 from flask import jsonify
 from models import storage
@@ -20,6 +20,7 @@ def status():
 
 @app_views.route('/stats', methods=['GET'])
 def stats_get():
+    """Return stats of all objects"""
     classes = {
         'states': State,
         'users': User,
