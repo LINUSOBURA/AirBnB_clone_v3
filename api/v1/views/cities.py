@@ -36,7 +36,7 @@ def delete_city(city_id):
         abort(404)
     city.delete()
     storage.save()
-    return jsonify({}), 200
+    return jsonify({}), '200'
 
 
 @app_views.route('/states/<state_id>/cities',
@@ -55,7 +55,7 @@ def create_city(state_id):
     data['state_id'] = state_id
     new_city = City(**data)
     new_city.save()
-    return jsonify(new_city.to_dict()), 201
+    return jsonify(new_city.to_dict()), '201'
 
 
 @app_views.route('/cities/<city_id>', methods=['PUT'], strict_slashes=False)
@@ -70,4 +70,4 @@ def update_city(city_id):
     for key, value in data.items():
         setattr(city, key, value)
     city.save()
-    return jsonify(city.to_dict()), 200
+    return jsonify(city.to_dict()), '200'
